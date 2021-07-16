@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORINOCO</title>
+    <link rel="stylesheet" href="../back-end/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../back-end/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../back-end/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">Logos</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active h3" aria-current="page" href="index.html">Rayons</a>
+              </li>
+              <li class="nav-item h3">
+                <a class="nav-link active" href="./commande.html">Mon compte</a>
+              </li>
+              <li class="nav-item h3">
+                <a class="nav-link active" href="./panier.html" tabindex="-1" aria-disabled="true">Panier</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+    </nav>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-8">                
+            </div>
+        </div>
+
+        <div class="msg"></div>
+
+        <div class="panier">
+          <table class="table panier-table mt-5">
+            <thead>
+                <tr>                  
+                    <th>Nom de l'article</th>
+                    <th>L'article</th>
+                    <th>Couleur de l'article</th>
+                    <th>Prix de l'<article></article></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="article-liste"></tbody>         
+          </table>
+        </div>
+        <form class="book-form" action="">
+          <div class="from-group">
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" class="form-control">
+          </div>
+
+          <div class="from-group">
+              <label for="nom">Nom:</label>
+              <input type="text" id="nom" class="form-control">
+          </div>
+          
+          <div class="from-group">
+              <label for="mail">E-mail:</label>
+              <input type="text" id="mail" class="form-control">
+          </div>
+          <div class="from-group">
+            <label for="adresse">Adresse</label>
+            <input type="text" id="adresse" class="form-control">
+          </div>
+          <div class="from-group">
+            <label for="ville">Ville</label>
+            <input type="text" id="ville" class="form-control ">
+          </div>
+          <input type="submit" value="Confirmez votre commande" class="btn btn-danger btn-block mt-3">            
+      </form>
+    </div>
+
+    
+
+ 
+
+    <!-- <form class="my-form">
+        <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4 col-lg-8">
+              <label for="validationCustom01" class="form-label">First name</label>
+              <input type="text" class="form-control" id="validationCustom01" value="Grâce" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-md-4 col-lg-8">
+              <label for="validationCustom02" class="form-label">Last name</label>
+              <input type="text" class="form-control" id="validationCustom02" value="MENDJE" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-md-4 col-lg-8">
+              <label for="validationCustomUsername" class="form-label">Username</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" value="Ex: GraceMDJ" required>
+                <div class="invalid-feedback">
+                  Please choose a username.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-8">
+              <label for="validationCustom03" class="form-label">City</label>
+              <input type="text" class="form-control" id="validationCustom03" required>
+              <div class="invalid-feedback">
+                Please provide a valid city.
+              </div>
+            </div>
+            <div class="col-md-3 col-lg-8">
+              <label for="validationCustom04" class="form-label">State</label>
+              <select class="form-select" id="state" required>
+                <option selected disabled value="">Choose...</option>
+                <option>...</option>
+                <option>France</option>
+                <option>République Démocratique du Congo</option>
+                <option>Allemagne</option>
+                <option>U.S.A</option>
+                <option>Chine</option>
+                <option>Canada</option>
+                <option>Afrique du sud</option>
+                <option>Grande Bretagne</option>
+                <option>Japon</option>
+                <option>Chypres</option>
+                <option>Grèce</option>
+                <option>Turquie</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid state.
+              </div>
+            </div>
+            <div class="col-md-3 col-lg-8">
+              <label for="validationCustom05" class="form-label">Zip</label>
+              <input type="number" class="form-control" id="zip" required>
+              <div class="invalid-feedback">
+                Please provide a valid zip.
+              </div>
+            </div>
+            <div class="col-12 col-lg-8">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                  Agree to terms and conditions
+                </label>
+                <div class="invalid-feedback">
+                  You must agree before submitting.
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-danger" type="submit">Submit form</button>
+            </div>
+          </form>
+    </form> -->
+   
+      <!-- <script src="./js/panier.js"></script> -->
+      <script src="./js/test.js"></script>
+</body>
+</html>
