@@ -58,118 +58,59 @@
             </thead>
             <tbody id="article-liste"></tbody>         
           </table>
+          <div id="prixtotal" class="text-end col-12 "> </div>
         </div>
-        <form class="book-form" action="">
+
+
+        <form class="book-form" action="">          
           <div class="from-group">
+            <div><h3>Pour finaliser votre commande, Veuillez nous indiquer les informations </h1></div>
+            <div class="msg"></div>
             <label for="prenom">Prénom:</label>
-            <input type="text" id="prenom" class="form-control">
+            <input type="text" id="prenom" class="form-control" placeholder="Ex: Grâce">
           </div>
 
           <div class="from-group">
+            <div class="msg"></div>
               <label for="nom">Nom:</label>
               <input type="text" id="nom" class="form-control">
           </div>
           
           <div class="from-group">
+            <div class="msg"></div>
               <label for="mail">E-mail:</label>
               <input type="text" id="mail" class="form-control">
           </div>
           <div class="from-group">
+            <div class="msg"></div>
             <label for="adresse">Adresse</label>
             <input type="text" id="adresse" class="form-control">
           </div>
           <div class="from-group">
+            <div class="msg"></div>
             <label for="ville">Ville</label>
             <input type="text" id="ville" class="form-control ">
           </div>
-          <input type="submit" value="Confirmez votre commande" class="btn btn-danger btn-block mt-3">            
+          <input id="commande" type="submit" value="Confirmez votre commande" class="btn btn-danger btn-block mt-3">            
       </form>
     </div>
+
+    <div class="container">
+      <input type="button" onclick="decrementValue()" value="-" />
+      <input type="text" name="quantity" value="1" maxlength="2" max="10" size="1" id="number" />
+      <input type="button" onclick="incrementValue()" value="+" />
+      </div>
+      
 
     
 
  
 
-    <!-- <form class="my-form">
-        <form class="row g-3 needs-validation" novalidate>
-            <div class="col-md-4 col-lg-8">
-              <label for="validationCustom01" class="form-label">First name</label>
-              <input type="text" class="form-control" id="validationCustom01" value="Grâce" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-            </div>
-            <div class="col-md-4 col-lg-8">
-              <label for="validationCustom02" class="form-label">Last name</label>
-              <input type="text" class="form-control" id="validationCustom02" value="MENDJE" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-            </div>
-            <div class="col-md-4 col-lg-8">
-              <label for="validationCustomUsername" class="form-label">Username</label>
-              <div class="input-group has-validation">
-                <span class="input-group-text" id="inputGroupPrepend">@</span>
-                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" value="Ex: GraceMDJ" required>
-                <div class="invalid-feedback">
-                  Please choose a username.
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-8">
-              <label for="validationCustom03" class="form-label">City</label>
-              <input type="text" class="form-control" id="validationCustom03" required>
-              <div class="invalid-feedback">
-                Please provide a valid city.
-              </div>
-            </div>
-            <div class="col-md-3 col-lg-8">
-              <label for="validationCustom04" class="form-label">State</label>
-              <select class="form-select" id="state" required>
-                <option selected disabled value="">Choose...</option>
-                <option>...</option>
-                <option>France</option>
-                <option>République Démocratique du Congo</option>
-                <option>Allemagne</option>
-                <option>U.S.A</option>
-                <option>Chine</option>
-                <option>Canada</option>
-                <option>Afrique du sud</option>
-                <option>Grande Bretagne</option>
-                <option>Japon</option>
-                <option>Chypres</option>
-                <option>Grèce</option>
-                <option>Turquie</option>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid state.
-              </div>
-            </div>
-            <div class="col-md-3 col-lg-8">
-              <label for="validationCustom05" class="form-label">Zip</label>
-              <input type="number" class="form-control" id="zip" required>
-              <div class="invalid-feedback">
-                Please provide a valid zip.
-              </div>
-            </div>
-            <div class="col-12 col-lg-8">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                <label class="form-check-label" for="invalidCheck">
-                  Agree to terms and conditions
-                </label>
-                <div class="invalid-feedback">
-                  You must agree before submitting.
-                </div>
-              </div>
-            </div>
-            <div class="col-12">
-              <button class="btn btn-danger" type="submit">Submit form</button>
-            </div>
-          </form>
-    </form> -->
+    
    
       <!-- <script src="./js/panier.js"></script> -->
-      <script src="./js/test.js"></script>
+      <!-- <script src="./js/panier.js"></script> -->
+      <script src="./js/form.js"></script>
+      <script src="./js/remove.js"></script>
 </body>
 </html>

@@ -8,18 +8,27 @@ fetch("http://localhost:3000/api/teddies")
     console.log(data[1]);
     data.forEach(teddy =>{
         console.log(teddy._id);
-        contenu.innerHTML += `<a href = "produit.html?id=${teddy._id}" class="col-12 col-md-6 col-xl-4">
-        <div class="card mb-3 mt-3">
+        contenu.innerHTML += `
+        <div class="card mb-3 mt-3 col-12 col-md-6 col-xl-4">
             <img src="${teddy.imageUrl}" class="card-img-top" alt="Photo du nournours">
             <div class="card-body l-4">
-                <h2 class="card-title">${teddy.name}</h2>
-                <p class="card-text h4">${teddy.description}</p>
-                <p class="card-text card-price text-danger h4 col-4">${teddy.price} €
+                <div class="row">
+                <h2 class="card-title text-center h3 col-6">${teddy.name}</h2>
+                <p class="card-text card-price text-danger h4 col-6 text-end">${teddy.price/100} €
                 </p>
-                <button class="btn btn__panier btn-danger col-12" type="submit">Details</button>
-            </div>
+                </div>
+                <p class="card-text h4"><span class="d-inline-block text-truncate" style="max-width: 450px;">${teddy.description}</span></p>                
+                <!--<a href = "produit.html?id=${teddy._id}class="card mb-3 mt-3 col-12 col-md-6 col-xl-4">Details</a>-->
+
+
+                <a class="btn btn-danger panier col-12" href="./panier.html" role="button">Panier</a>
+
+                <a class="btn btn-warning card mb-3 mt-3 btn-panier col-12" href="produit.html?id=${teddy._id}" role="button">Détails</a>
+
+                <!--<button class="btn btn__panier btn-danger col-12" type="submit"></button>
+            </div>-->
         </div>
-        </a>` 
+        ` 
     })
     
      

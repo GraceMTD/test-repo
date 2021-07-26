@@ -1,17 +1,19 @@
-const nounours = document.getElementById('container');
+const nounours = document.getElementById("container");
 console.log(nounours);
 const url = window.location.href;
 // console.log(url);
-const id = url.split('=')[1];
+const id = url.split("=")[1];
 console.log(id);
-fetch(`http://localhost:3000/api/teddies/${id}`) 
- .then(response => response.json())
- .then(doudou => {
+fetch(`http://localhost:3000/api/teddies/${id}`)
+  .then((response) => response.json())
+  .then((doudou) => {
     console.log(doudou);
-       nounours.innerHTML += `<div class="card mb-10" >
+    nounours.innerHTML += `<div class="card mb-10" >
            <div class="row g-0">
            <div class="col-md-6">
-           <img src="${doudou.imageUrl}" class="img-fluid rounded-start" alt="Phote de nournours">
+           <img src="${
+             doudou.imageUrl
+           }" class="img-fluid rounded-start" alt="Phote de nournours">
            </div>
              <div class="col-md-6">
                 <div class="card-body">
@@ -19,128 +21,57 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
                  <div class="input-group mb-3">
                     <label class="input-group-text" for="inputGroupSelect01">Couleurs</label>
                     <select class="form-select" id="inputGroupSelect01">
-                      <option id="choixdelacouleur" class="CouleurduNournour" selected>Choisissez une couleur au choix...</option> 
+                      <!--<option id="choixdelacouleur" class="CouleurduNournour" selected></option>--> 
                     </select>
                 </div>
                  <p class="card-text h4">${doudou.description}</p>
-                 <p class="card-text text-danger h3">${doudou.price/100} €</p>
-                 <button class="btn btn__panier btn-danger " type="submit">Ajouter au panier</button>
+                 <p class="card-text text-danger h3">${doudou.price / 100} €</p>
+                 <a href="../../panier.html" class="btn btn-danger panier" role="button">Ajouter au panier</a>
                </div>
              </div>
            </div>
-        </div>`
-        
-      let couleur = document.querySelector('select');   
-      doudou.colors.forEach(color => {
-        couleur.innerHTML += `<option value="${color}">${color}</option>`
-      });
+        </div>`;
 
-      // function ColorValue(y){
-      //   let colorSelect = couleur[0];        
-      //   couleurFinale = y.value;
-      //   return couleurFinale;
-      // }
-      // ColorValue();
+    let couleur = document.querySelector("select");
+    doudou.colors.forEach((color) => {
+      couleur.innerHTML += `<option value="${color}">${color}</option>`;
+    });
 
-      // console.log(ColorValue);
-
-
-      let erreur = document.getElementsByClassName('erreur');
-      console.log(erreur);
-      let couleurArticle = document.getElementsByClassName('couleurduproduit');
-      console.log(couleurArticle);
-      let btn = document.getElementsByClassName('btn__panier');
-
-      //class constructor Article
-      // class Teddy{
-      //   constructor(title, image,color, price){
-      //       this.title = title;
-      //       this.image = image;
-      //       this.color = color;
-      //       this.price = price;
-      //   }
-      // }
-      // console.log(btn);  
-
-      document.querySelector('.btn__panier').addEventListener('click', (e) =>{
-        e.preventDefault();
-        
-        const teddies = [
-            {
-              image: doudou.imageUrl,
-              title: doudou.name,
-              color: couleur.value,
-              price: doudou.price/100  
-            }
-          ]; 
-          //console.log(teddies);  
-          localStorage.setItem("teddies", JSON.stringify(teddies));  
-        
-          
-              
-      })
-
-       
-    // console.log(teddies);  
-    // localStorage.setItem("teddies", JSON.stringify(teddies));  
-    // const teddies = [
-    //   {
-    //     image: doudou.imageUrl,
-    //     title: doudou.name,
-    //     color: couleur[0].value,
-    //     price: doudou.price  
-    //   }
-    // ]; 
-    // console.log(teddies);
-    // if(teddies.title==='', teddies.image === ""||teddies.price===''||teddies.color===''){
-    //   alert('Stock vide, essayez ultérieurement')
-    // }else{
-    //   const teddy = new Teddy( Teddy.title, Teddy.image, Teddy.price, Teddy.color); 
-    // }
-
-    // //Pour Ajouter le produit à l'interface client
-    // AfficherLArticle.addArticleList(Teddy);
-
-    // //Pour ajouter l'article dans le localStorage
-    // Store.addArticle(Teddy);
-
-      
-    //   function ValeurDelaCouleur(e){
-    //     e.preventDefault();
-    //     //let valeurCouleur = couleur.value;
-    //     if (couleur ==='Choisissez une couleur au choix...'){
-    //       erreur.classList.add('error');
-    //       erreur.innerHTML = '';
-    //     }else{
-    //       //const  couleurDuProduit= document.createElement('li');
-    //       //Pour créer un élément dans le html
-    //       const li = document.createElement('li');
-    //     //Ici nous affectons les valeur recuperer des inputs à li
-    //     li.appendChild(document.createTextNode(`${coleur.value}`));
-    //     //Ici nous les envoyons pour modifier le html.
-    //     couleurArticle.appendChild(li);
-
-    //     //clear fields.
-    //     couleur.value = 'Choisissez une couleur au choix...';
-    //     }
-    //   }
-    
-      
-
-    // couleurSetelected.addEventListener('select', (e) => {
-    //   return color[0]        
-    // });
-
-}); 
    
-    
-    
+
+    let erreur = document.getElementsByClassName("erreur");
+    console.log(erreur);
+    let couleurArticle = document.getElementsByClassName("couleurduproduit");
+    console.log(couleurArticle);
+    let btn = document.getElementsByClassName("panier");
+
+    //Ici je crée un evenement pour recuperer la commande et le rajouter dans localStorage.
+    document.querySelector(".panier").addEventListener("click", (e) => {
+      e.preventDefault();
+      let couleur = document.querySelector("select");
+      let couleurArticle = couleur.value;
+      //storageElement : me permettra de sauvegarder tout les élément sous tableau 
+      
+      let storageElement = JSON.parse(localStorage.getItem("teddies"));
+      if(storageElement=== null){
+        storageElement = [];
+      }
+      console.log(storageElement);
+
+      const teddies = {
+        image: doudou.imageUrl,
+        title: doudou.name,
+        color: couleurArticle,
+        price: doudou.price / 100,
+      };
+
+      //Pour rajouter teddies dans notre back up ou reserve de nos élémént
+      storageElement.push(teddies);
+      localStorage.setItem("teddies", JSON.stringify(storageElement));
+      
+    });
 
     
-      //ValeurDelaCouleur();
+  });
 
-    // let couleurDuProduit = couleur.value;
-    // console.log(couleurDuProduit);
-    //const btnPanier = document.getElementsByClassName("btn__panier");
-    //console.log(btnPanier);
-
+ 
